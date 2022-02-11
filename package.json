@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --check . --write"
+    "format": "prettier --check . --write",
+    "generate": "graphql-codegen --require dotenv/config --config codegen.yaml"
   },
   "dependencies": {
     "@apollo/client": "^3.5.8",
