@@ -1,5 +1,5 @@
 import { ApolloProvider } from '@apollo/client'
-import { client } from '../libs/apollo/client'
+import { client } from '@src/libs/apollo'
 import type { AppPropsWithLayout } from 'next/app'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {

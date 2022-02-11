@@ -1,5 +1,3 @@
-export const HomePage = () => (
-  <>
-    <h1>home page</h1>
-  </>
-)
+import { HomeContents } from '@src/component/pages/Home/Home.contents'
+
+export const HomePage = () => <HomeContents />
