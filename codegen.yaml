@@ -1,0 +1,41 @@
+## @see https://zenn.dev/foolishell/articles/3258404f2b41d0
+overwrite: true
+schema: ${NEXT_PUBLIC_GRAPHQL_URL}
+documents: 'src/graphql/**/*.graphql'
+generates:
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'
+  ./src/graphql/generated/types.ts:
+    plugins:
+      - 'typescript'
+    config:
+      skipTypename: true
+      scalars:
+        ISO8601Date: string
+        ISO8601DateTime: string
+  ./src/graphql/generated/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .client.graphql.ts
+      baseTypesPath: ./types.ts
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      skipTypename: true
+      scalars:
+        ISO8601Date: string
+        ISO8601DateTime: string
+  ./src/graphql/generated/ssr.generated.ts:
+    preset: import-types
+    presetConfig:
+      typesPath: './types'
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-graphql-request'
+    config:
+      skipTypename: true
+      scalars:
+        ISO8601Date: string
+        ISO8601DateTime: string
